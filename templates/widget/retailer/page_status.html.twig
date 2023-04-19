@@ -1,0 +1,9 @@
+{% if status == constant('App\\Entity\\Retailers\\Pages\\Status::NOT_FETCHED') %}
+    <span class="badge badge-primary">Not Fetched</span>
+{% elseif status == constant('App\\Entity\\Retailers\\Pages\\Status::MISSING_REQUIRED_ATTRIBUTES') %}
+    <span class="badge badge-warning">Missing required attributes</span>
+{% elseif status == constant('App\\Entity\\Retailers\\Pages\\Status::SUCCESS') %}
+    <span class="badge badge-success">Success</span>
+{% elseif status == constant('App\\Entity\\Retailers\\Pages\\Status::UNAVAILABLE') %}
+    <span title="{{ reason }}" class="badge badge-warning">Unavailable</span>
+{% endif %}

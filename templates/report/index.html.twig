@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% set page_title = 'Check Stats' %}
+
+{% block body %}
+    <div class="box">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>User</th>
+                <th>Action</th>
+                <th>Count</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in reports   %}
+                <tr>
+                    <td>{{ item.user }}</td>
+                    <td>{{ item.action }}</td>
+                    <td>{{ item.count }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

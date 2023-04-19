@@ -1,19 +1,96 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{% block title %}Welcome!{% endblock %}</title>
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+</head>
+<body class="c-app">
+<div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+    <div class="c-sidebar-brand d-lg-down-none">
+        <a class="navbar-brand" style="color: #fff; font-size: 16px;" href="#">
+            <i class="cil-restaurant"></i> Test Task Menu
+        </a>
+    </div>
+
+    {{ knp_menu_render('sidebar', {'currentClass': 'active'}) }}
+</div>
+<div class="c-wrapper c-fixed-components">
+    <header class="c-header c-header-light c-header-fixed c-header-with-subheader">
+        <button class="c-header-toggler c-class-toggler d-lg-none mfe-auto" type="button" data-target="#sidebar"
+                data-class="c-sidebar-show">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar"
+                data-class="c-sidebar-lg-show" responsive="true">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+        <ul class="c-header-nav d-md-down-none">
+            <li class="c-header-nav-item px-3">
+                <h3 class="mt-1">{{ page_title }}</h3>
+            </li>
+        </ul>
+
+        <ul class="c-header-nav ml-auto col-md-2 row-with-create-button" style="margin-right: 1.5rem!important; justify-content: space-around">
+            <li>
+                {% block top_buttons %} {% endblock %}
+            </li>
+
+            <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#"
+                                                      role="button" aria-haspopup="true" aria-expanded="false">
+                    <div class="c-avatar">
+                        {# <img class="c-avatar-img" src="{{ gravatar(app.user.username, 40) }}" alt="{{ app.user.username }}"> #}
+{#                        {{ app.user.email }}#}
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right pt-0">
+
+                    <div class="dropdown-header text-center">
+                        <strong>Account</strong>
+                    </div>
+                    {# <a class="dropdown-item" href="{{ path('profile') }}"><i class="fa fa-user mr-2"></i> Profile</a> #}
+                    <a class="dropdown-item" href="{{ path('app_logout') }}"><i class="fa fa-lock mr-2"></i> Logout</a>
+
+                </div>
+            </li>
+        </ul>
+        <div class="c-subheader justify-content-between px-3">
+            {% block breadcrumbs %}{% endblock %}
+        </div>
+
+        {# {% include '_flashes.html.twig' %} #}
+
+    </header>
+    <div class="c-body">
+        <main class="c-main">
+            <div class="container-fluid">
+                <div class="fade-in">
+
+
+                    <div class="container-fluid">
+                        {% include '_flashes.html.twig' %}
+                        {% block body %}{% endblock %}
+                    </div>
+
+                </div>
+            </div>
+        </main>
+        <footer class="c-footer">
+            <span>© {{ "now"|date("Y") }} All rights reserved</span>
+        </footer>
+    </div>
+</div>
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+
+</body>
 </html>

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+{% set page_title = 'Users List' %}
+
+{% block breadcrumbs %}
+    <ol class="breadcrumb border-0 m-0 px-0 px-md-3">
+        <li class="breadcrumb-item active">Users</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+
+    <div class="card">
+        <div class="card-body">
+
+            {{ form_start(form) }}
+            <div class="row">
+               <div class="col-md-2">{{ form_widget(form.email) }}</div>
+            </div>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+
+    <div class="box">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Email', 'email') }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in pagination %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.email }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}

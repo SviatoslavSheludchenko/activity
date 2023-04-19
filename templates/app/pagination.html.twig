@@ -1,0 +1,86 @@
+{% set pageCount = paginator.last %}
+{% set current = paginator.current %}
+{% set first = paginator.first %}
+{% set last = paginator.last %}
+{% set route = app.request.attributes.get('_route') %}
+{% set query = app.request.query.all %}
+
+{% if pageCount > 1 %}
+    <div class="row">
+        <div class="col-md-12 pagination_block">
+            <ul class="pagination">
+                {% if current != first %}
+                    <li class="page-item">
+                        <a href="{{ path(route, query|merge(paginator.getQueryParameters(current - 1))) }}" rel="page"
+                           class="page-link prev-link">&lt;</a>
+                    </li>
+                {% endif %}
+                {% if current - 2 > first %}
+                    <li class="page-item">
+                        <a href="{{ path(route, query|merge(paginator.getQueryParameters(first))) }}" rel="page"
+                           class="page-link ">{{ first }}</a>
+                    </li>
+                    <li class="page-item">
+                        <span class="endless_separator page-link">...</span>
+                    </li>
+                    <li class="page-item">
+                        <a href="{{ path(route, query|merge(paginator.getQueryParameters(current - 1))) }}" rel="page"
+                           class="page-link ">{{ current - 1 }}</a>
+                    </li>
+                {% elseif current - 2 == first %}
+                    <li class="page-item">
+                        <a href="{{ path(route, query|merge(paginator.getQueryParameters(first))) }}" rel="page"
+                           class="page-link ">{{ first }}</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="{{ path(route, query|merge(paginator.getQueryParameters(current - 1))) }}" rel="page"
+                           class="page-link ">{{ current - 1 }}</a>
+                    </li>
+                {% elseif current - 1 >= first %}
+                    <li class="page-item">
+                        <a href="{{ path(route, query|merge(paginator.getQueryParameters(first))) }}" rel="page"
+                           class="page-link ">{{ first }}</a>
+                    </li>
+                {% endif %}
+                <li class="page-item">
+                    <span class="page-link endless_page_current">
+                            <strong>{{ current }}</strong>
+                    </span>
+                </li>
+                {% if current + 2 < last %}
+                    <li class="page-item">
+                        <a href="{{ path(route, query|merge(paginator.getQueryParameters(current + 1))) }}" rel="page"
+                           class="page-link ">{{ current + 1 }}</a>
+                    </li>
+                    <li class="page-item">
+                        <span class="endless_separator page-link ">...</span>
+                    </li>
+                    <li class="page-item">
+                        <a href="{{ path(route, query|merge(paginator.getQueryParameters(last))) }}" rel="page"
+                           class="page-link ">{{ last }}</a>
+                    </li>
+                {% elseif current + 2 == last %}
+                    <li class="page-item">
+                        <a href="{{ path(route, query|merge(paginator.getQueryParameters(current + 1))) }}" rel="page"
+                           class="page-link ">{{ current + 1 }}</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="{{ path(route, query|merge(paginator.getQueryParameters(last))) }}" rel="page"
+                           class="page-link ">{{ last }}</a>
+                    </li>
+                {% elseif current + 1 <= last %}
+                    <li class="page-item">
+                        <a href="{{ path(route, query|merge(paginator.getQueryParameters(last))) }}" rel="page"
+                           class="page-link ">{{ last }}</a>
+                    </li>
+                {% endif %}
+                {% if last is defined and current != last %}
+                    <li class="page-item">
+                        <a href="{{ path(route, query|merge(paginator.getQueryParameters(current + 1))) }}" rel="page"
+                           class="page-link ">&gt;</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endif %}

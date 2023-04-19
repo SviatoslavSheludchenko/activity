@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+{% set page_title = 'Users Activity' %}
+
+{% block breadcrumbs %}
+    <ol class="breadcrumb border-0 m-0 px-0 px-md-3">
+        <li class="breadcrumb-item active">Users Actions</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+
+    <div class="card">
+        <div class="card-body">
+
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-md-2">{{ form_widget(form.action) }}</div>
+                <div class="col-md-2">{{ form_widget(form.user) }}</div>
+            </div>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+
+    <div class="box">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Action', 'action') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'User', 'user') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Date', 'date') }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for userActivity in pagination %}
+                <tr>
+                    <td>{{ userActivity.id }}</td>
+                    <td>{{ userActivity.action }}</td>
+                    <td>{{ userActivity.user }}</td>
+                    <td>{{ userActivity.date }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}

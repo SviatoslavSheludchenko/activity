@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% set page_title = 'Buy a new Cow' %}
+
+{% block breadcrumbs %}
+    <ol class="breadcrumb border-0 m-0 px-0 px-md-3">
+        <li class="breadcrumb-item active">Buy a cow</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+
+    <a href="{{ path('buy') }}" class="btn btn-info" role="button" >Buy a cow</a>
+
+{% endblock %}

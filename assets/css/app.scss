@@ -1,0 +1,360 @@
+@import "variables";
+@import "~@coreui/coreui/scss/coreui";
+@import "~simple-line-icons/scss/simple-line-icons";
+@import "~font-awesome/scss/font-awesome";
+@import "~toastr/toastr";
+@import "~multiselect/css/multi-select.css";
+@import "~jquery-timepicker/jquery.timepicker.css";
+@import "~bootstrap-fileinput/css/fileinput.min.css";
+@import "~select2/dist/css/select2.min.css";
+@import "~baguettebox.js/src/baguetteBox.scss";
+@import "~bootstrap-select/dist/css/bootstrap-select.css";
+
+a {
+    color: #166de0;
+}
+
+main {
+    & > .container {
+        padding: 80px 15px 0;
+    }
+}
+
+.c-main {
+    .container-fluid {
+        padding: 0 10px !important;
+    }
+}
+
+.dn {
+    display: none;
+}
+
+#selectors-toggler, #results-toggler {
+    font-size: 14px;
+    border-bottom: 1px dashed #39f;
+    color: #39f;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+
+    & > * {
+        margin-right: 4px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.box {
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,0.1);
+}
+
+.table {
+    th,
+    td {
+        vertical-align: middle;
+    }
+}
+
+.badge {
+    padding: 0.28em 0.4em 0.22em 0.4em;
+    line-height: 1.1;
+}
+
+.btn-create {
+    color: #fff !important;
+}
+.btn-create:hover {
+    color: #fff !important;
+    background-color: #63c2de !important;
+}
+
+.card {
+    &> .table-bordered {
+        border: none;
+        margin-top: -1px;
+
+        th:first-child, td:first-child {
+            border-left: none;
+        }
+
+        th:last-child, td:last-child {
+            border-right: none;
+        }
+
+        th, td {
+            border-bottom: none;
+        }
+    }
+}
+
+.cp {
+    cursor: pointer;
+}
+
+pre {
+    padding: 9.5px;
+    margin-bottom: 1rem;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f6f6f6;
+    border: 1px solid #e3e3e3;
+    border-radius: 3px;
+}
+
+.table.calendar > tbody > tr > td {
+    padding: 0;
+    vertical-align: top;
+
+    &.muted {
+        background: #f6f6f6;
+    }
+
+    .day {
+        min-height: 100px;
+        padding: 0 4px;
+
+        .item {
+            background: #ffffdd;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 4px 0;
+            padding: 8px;
+
+            .header {
+                margin-bottom: 4px;
+            }
+
+            .link {
+                line-height: 1.2;
+            }
+        }
+    }
+}
+
+@import "chat";
+
+.direct-chat-action {
+    padding: 0 0 10px 50px;
+    font-size: .8rem;
+}
+
+.footer {
+    background-color: #f5f5f5;
+
+    & > .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+.section-nav {
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.toc-entry {
+    display: block;
+}
+
+.toc-entry a {
+    display: block;
+    padding: .125rem 1.5rem;
+    color: #99979c;
+}
+
+.bd-toc {
+    overflow-y: auto;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: 104px;
+}
+
+
+.menu-group .menu-items {
+    padding-left: 0;
+    padding-right: 0
+}
+
+.menu-category-name {
+    margin-left: 20px;
+}
+
+.menu-bars-sort {
+    top: 30px;
+    left: 10px;
+}
+
+.menu-items {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem
+}
+
+.menu-items .menu-item {
+    border-top: 1px dashed #efeded;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.menu-items .menu-item:first-child {
+    border-top: 0 none
+}
+
+.menu-item-no-border {
+    border-top: none !important;
+    padding-left: 5px !important;
+    margin-left: 10px !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+}
+
+.menu-item-no-border-additional {
+    margin-left: 20px !important;
+}
+
+.business-hours .title {
+    font-size: 20px;
+    color: #BBB;
+    text-transform: uppercase;
+    padding-left: 5px;
+    border-left: 4px solid #ffac0c;
+}
+.business-hours li {
+    color: #888;
+    line-height: 30px;
+    border-bottom: 1px dashed #e6e6e6;
+}
+.business-hours li:last-child {
+    border-bottom: none;
+}
+.business-hours .opening-hours li.today {
+    color: #ffac0c;
+}
+
+.menu-img img {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+}
+.menu-img {
+    float: left; width: 20px;
+}
+.menu-title {
+    margin-left: 25px;
+    padding-top: 5px;
+}
+
+.sortable-li {
+    padding: 0 5px 5px;
+}
+
+.buttons-row {
+    margin-bottom: 10px;
+    padding-right: 1%;
+    margin-top: 1rem;
+}
+
+.buttons-row .buttons-container {
+    display: inline-flex;
+    justify-content: space-around;
+    padding: 0;
+    text-align: right;
+}
+
+.row > .pagination_block {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.row > .pagination_block > .pagination {
+    margin-right: 1rem;
+}
+
+.c-header-nav.col-md-2.row-with-create-button,
+.buttons-row .buttons-container.col-md-2
+{
+    width: 13%;
+    flex: 0 0 13%;
+}
+
+.retailer-settings-form legend {
+    display: none;
+}
+.retailer-settings-form div.form-group {
+    width: 48%;
+    display: inline-block;
+}
+.retailer-settings-form div.form-group:last-of-type {
+    margin-left: 1%;
+}
+
+.retailer-settings-form .remove-setting {
+    width: 2%;
+    display: inline-block;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.retailer-update-proxies-form .proxies-settings .proxy-ip {
+    width: 6.5rem;
+    display: inline-block;
+}
+.retailer-update-proxies-form .proxies-settings .up-proxy,
+.retailer-update-proxies-form .proxies-settings .down-proxy {
+    width: 1rem;
+    display: inline-block;
+}
+
+.service-edit_attribute_groups .form-check {
+    display: inline-block;
+    width: 20%;
+}
+
+.multiple-forms-edit legend
+{
+    display: none;
+}
+
+.multiple-forms-edit div.form-group
+{
+    width: 48%;
+    display: inline-block;
+}
+
+.multiple-forms-edit .remove-element,
+.multiple-forms-edit .add-element-link {
+    margin-left: 1%;
+}
+
+.multiple-forms-edit button[type="submit"] {
+    float: right;
+}
+
+.multiple-forms-edit .fa.fa-trash,
+.multiple-forms-edit .fa.fa-plus-circle {
+    font-size: 1.5rem;
+}
+
+.client-edit-form .active_field_hidden
+{
+    display: none;
+}
+
+.client-update-indexes-form fieldset.form-group .form-group,
+.client-update-keywords-form fieldset.form-group .form-group,
+.client-update-categories-form fieldset.form-group .form-group {
+    width: 48%;
+    display: block;
+}

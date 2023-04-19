@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% set page_title = 'Download File' %}
+
+{% block breadcrumbs %}
+    <ol class="breadcrumb border-0 m-0 px-0 px-md-3">
+        <li class="breadcrumb-item active">Download</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+
+    <a href="{{ path('download') }}" class="btn btn-info" role="button" download>Download Link</a>
+
+{% endblock %}
